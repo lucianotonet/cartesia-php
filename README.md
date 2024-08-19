@@ -45,6 +45,7 @@ $voiceId = 'a0e99841-438c-4a64-b679-ae501e7d6091'; // Cloned voice ID
 // Make a speech synthesis request
 try {
     $response = $client->streamSpeechBytes([
+        'context_id' => 'happy-monkeys-fly',
         'model_id' => $modelId,
         'transcript' => $transcript,
         'voice' => [
@@ -67,9 +68,42 @@ try {
 }
 ```
 
+## Roadmap
+
+- [x] API Status and Version
+- [x] Create Voice
+- [x] Delete Voice
+- [x] Update Voice
+- [x] Get Voice
+- [x] List Voices
+- [x] Clone Voice (Clip)
+- [x] Mix Voices
+- [x] Stream Speech (Bytes)
+- [x] Stream Speech (Server-Sent Events)
+- [ ] Stream Speech (WebSocket)
+- [ ] Localize Voice
+
+## Running the examples
+
+To run the examples provided in the `examples` directory, copy the `.env.example` file to `.env` and update the `CARTESIA_API_KEY` constant with your Cartesia API key:
+
+```bash
+# .env
+CARTESIA_API_KEY=your_api_key
+```
+
+Then, start the PHP server in the package root directory:
+
+```bash
+php -S 127.0.0.1:80
+```
+
+Now you can access the examples in your browser at `http://127.0.0.1/examples/`.
+
+
 ## Complete Documentation
 
-For detailed information on all available features and options, please refer to the complete library documentation: [https://cartesia.ai/docs/php-sdk](https://cartesia.ai/docs/php-sdk).
+For detailed information on all available features and options, please refer to the original REST API documentation: [https://docs.cartesia.ai](https://docs.cartesia.ai/api-reference/endpoints/).
 
 For the full source code and examples, visit the GitHub repository: [https://github.com/lucianotonet/cartesia-php](https://github.com/lucianotonet/cartesia-php)
 

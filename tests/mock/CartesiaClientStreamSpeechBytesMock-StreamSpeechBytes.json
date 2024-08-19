@@ -1,0 +1,33 @@
+{
+    "status_code": 200,
+    "headers": {
+        "Date": [
+            "Mon, 05 Aug 2024 19:30:15 GMT"
+        ],
+        "Content-Type": [
+            "audio\/pcm"
+        ],
+        "Transfer-Encoding": [
+            "chunked"
+        ],
+        "Connection": [
+            "keep-alive"
+        ],
+        "Vary": [
+            "Origin"
+        ],
+        "X-Request-Id": [
+            "7e89b481-b895-47c1-b8e7-d0c35f4ecb79"
+        ],
+        "CF-Cache-Status": [
+            "DYNAMIC"
+        ],
+        "Server": [
+            "cloudflare"
+        ],
+        "CF-RAY": [
+            "8ae9335c2d2777c0-GRU"
+        ]
+    },
+    "body": null
+}

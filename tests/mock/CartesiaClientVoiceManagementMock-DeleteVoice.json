@@ -1,0 +1,27 @@
+{
+    "status_code": 204,
+    "headers": {
+        "Date": [
+            "Mon, 05 Aug 2024 19:27:49 GMT"
+        ],
+        "Connection": [
+            "keep-alive"
+        ],
+        "Vary": [
+            "Origin"
+        ],
+        "X-Request-Id": [
+            "fea180b9-f373-42d3-9485-07ad09f10c32"
+        ],
+        "CF-Cache-Status": [
+            "DYNAMIC"
+        ],
+        "Server": [
+            "cloudflare"
+        ],
+        "CF-RAY": [
+            "8ae92fca88fb1b1c-GRU"
+        ]
+    },
+    "body": null
+}
