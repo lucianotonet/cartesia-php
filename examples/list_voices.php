@@ -1,54 +1,39 @@
-<?php
+<?php require_once '_parts/header.php'; ?>
+<?php require_once '_parts/nav.php'; ?>
+<?php if ($_SERVER['REQUEST_METHOD'] !== 'POST') { ?>
+    <div class="flex flex-col flex-1 bg-green-400/5 min-h-full overflow-y-scroll">
+        <?php
+        // Chama o método listVoices para recuperar as vozes disponíveis
+        $response = $client->listVoices();
 
-require '../vendor/autoload.php';
+        // Decodifica a resposta JSON em um array associativo
+        $voices = json_decode($response->getBody(), true);
 
-use LucianoTonet\CartesiaPHP\CartesiaClient;
-use LucianoTonet\CartesiaPHP\CartesiaClientException;
-use Dotenv\Dotenv;
+        // Verifica se a resposta da API contém um erro
+        if (isset($voices['error'])) {
+            echo "<div class='max-w-lg mx-auto mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg' role='alert'>";
+            echo "Erro ao listar vozes: " . htmlspecialchars($voices['error']);
+            echo "</div>";
+        } else {
+            // Exibe a lista de vozes em um formato HTML
+            echo "<div class='max-w-2xl mx-auto mt-6'>";
+            echo "<h1 class='text-2xl font-bold mb-4'>Vozes Disponíveis:</h1>";
+            echo "<ul class='space-y-4'>";
 
-// Load environment variables from the .env file
-$dotenv = Dotenv::createImmutable(__DIR__, '../.env');
-$dotenv->load();
+            // Itera por cada voz e exibe seus detalhes
+            foreach ($voices as $voice) {
+                echo "<li class='p-4 bg-white shadow rounded-lg'>";
+                echo "<strong class='text-lg'>Nome:</strong> " . htmlspecialchars($voice['name']) . "<br>";
+                echo "<strong>ID:</strong> " . htmlspecialchars($voice['id']) . "<br>";
+                echo "<strong>Descrição:</strong> " . htmlspecialchars($voice['description']) . "<br>";
+                echo "<strong>Criado Em:</strong> " . htmlspecialchars($voice['created_at']) . "<br>";
+                echo "<strong>Público:</strong> " . ($voice['is_public'] ? 'Sim' : 'Não') . "<br>";
+                echo "</li>";
+            }
 
-try {
-    // Create a new instance of the CartesiaClient using the API key from the environment variables
-    $client = new CartesiaClient($_ENV['CARTESIA_API_KEY']);
-    
-    // Call the listVoices method to retrieve the available voices
-    $response = $client->listVoices();
-    
-    // Decode the JSON response into an associative array
-    $voices = json_decode($response->getBody(), true);
-
-    // Check if the API response contains an error
-    if (isset($voices['error'])) {
-        echo "Error listing voices: " . $voices['error'];
-    } else {
-        // Display the list of voices in an HTML format
-        echo "<!DOCTYPE html>";
-        echo "<html>";
-        echo "<head>";
-        echo "<title>List of Voices</title>";
-        echo "</head>";
-        echo "<body>";
-        echo "<h1>Available Voices:</h1>";
-        echo "<ul>";
-        
-        // Iterate through each voice and display its details
-        foreach ($voices as $voice) {
-            echo "<li>";
-            echo "<strong>Name:</strong> " . htmlspecialchars($voice['name']) . "<br>";
-            echo "<strong>ID:</strong> " . htmlspecialchars($voice['id']) . "<br>";
-            echo "<strong>Description:</strong> " . htmlspecialchars($voice['description']) . "<br>";
-            echo "<strong>Created At:</strong> " . htmlspecialchars($voice['created_at']) . "<br>";
-            echo "<strong>Public:</strong> " . ($voice['is_public'] ? 'Yes' : 'No') . "<br>";
-            echo "</li>";
+            echo "</ul>";
+            echo "</div>";
         }
-        
-        echo "</ul>";
-        echo "</body>";
-        echo "</html>";
-    }
-} catch (CartesiaClientException $e) {
-    echo "Error listing voices: " . $e->getMessage();
-}
+        ?>
+    </div>
+<?php } ?>

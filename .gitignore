@@ -3,3 +3,4 @@ composer.lock
 .phpunit.result.cache
 *.log
 .env
+proj2md.py
