@@ -109,4 +109,4 @@ For the full source code and examples, visit the GitHub repository: [https://git
 
 ## Support
 
-If you encounter any issues or have any questions about the library, please contact our support team at [support@cartesia.ai](mailto:support@cartesia.ai).
+If you encounter any issues or have any questions about the library, please feel free to open an issue on GitHub. Contributions to the project are also welcome!

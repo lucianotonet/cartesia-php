@@ -1,5 +1,5 @@
 ---
-title: Início Rápido
+title: "Início Rápido"
 ---
 
 # Início Rápido

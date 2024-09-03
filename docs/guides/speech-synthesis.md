@@ -1,5 +1,5 @@
 ---
-title: Síntese de Fala
+title: "Síntese de Fala"
 ---
 
 # Guia de Síntese de Fala

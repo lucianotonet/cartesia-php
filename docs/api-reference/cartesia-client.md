@@ -1,5 +1,5 @@
 ---
-title: Referência da API do CartesiaClient
+title: "Referência da API do CartesiaClient"
 ---
 
 # Referência da API do CartesiaClient

@@ -1,5 +1,5 @@
 ---
-title: Exemplo: Stream de Fala (SSE)
+title: "Exemplo: Stream de Fala (SSE)"
 ---
 
 # Exemplo: Como Usar Stream de Fala (SSE)
