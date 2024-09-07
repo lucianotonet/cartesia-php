@@ -1,7 +1,7 @@
 {
     "name": "lucianotonet/cartesia-php",
     "description": "Cartesia PHP SDK",
-    "version": "0.1.0",
+    "version": "0.0.1",
     "type": "package",
     "require": {
         "php": "^8.1.0",
